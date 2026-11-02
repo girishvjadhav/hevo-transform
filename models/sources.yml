@@ -2,14 +2,19 @@ version: 2
 
 sources:
   - name: raw_customers
-    database: TESTHEVO # e.g., PC_HEVO_DB
-    schema: TEST_SCHEMA # e.g., PUBLIC
+    database: TESTHEVO
+    schema: TEST_SCHEMA
     tables:
       - name: customers
+
+  - name: raw_orders
+    database: TESTHEVO
+    schema: TEST_SCHEMA
+    tables:
       - name: orders
 
   - name: raw_payments
-    database: TESTHEVO # Update to where payments are stored
-    schema: TEST_SCHEMA 
+    database: TESTHEVO
+    schema: TEST_SCHEMA
     tables:
       - name: payments
