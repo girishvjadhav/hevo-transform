@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: hevo_postgres # This is the source name used in: {{ source('hevo_postgres', 'table_name') }}
+    database: TESTHEVO # Change to your actual Snowflake Database name
+    schema: TEST_SCHEMA             # Change to the Snowflake Schema where Hevo drops the data
+    tables:
+      - name: customers
+      - name: orders
+      - name: payments
