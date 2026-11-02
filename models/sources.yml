@@ -1,10 +1,15 @@
 version: 2
 
 sources:
-  - name: raw_customers # This is the source name used in: {{ source('hevo_postgres', 'table_name') }}
-    database: TESTHEVO # Change to your actual Snowflake Database name
-    schema: TEST_SCHEMA             # Change to the Snowflake Schema where Hevo drops the data
+  - name: raw_customers
+    database: TESTHEVO # e.g., PC_HEVO_DB
+    schema: TEST_SCHEMA # e.g., PUBLIC
     tables:
       - name: customers
       - name: orders
+
+  - name: raw_payments
+    database: TESTHEVO # Update to where payments are stored
+    schema: TEST_SCHEMA 
+    tables:
       - name: payments
