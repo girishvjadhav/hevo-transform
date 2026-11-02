@@ -1,0 +1,24 @@
+name: 'heo_transform'
+version: '1.0.0'
+config-version: 2
+
+# This determines where dbt looks for your files
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# This configures how your models will be built inside Snowflake
+models:
+  snowflake_analytics:
+    # Everything inside models/ staging directory will default to views
+    staging:
+      +materialized: view
+    # This ensures your final customer model automatically builds as a physical table
+    +materialized: table
