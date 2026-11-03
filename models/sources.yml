@@ -1,20 +1,20 @@
 version: 2
 
 sources:
-  - name: raw_customers
+  - name: customers
     database: TESTHEVO
     schema: TEST_SCHEMA
     tables:
-      - name: customers
+      - name: raw_customers
 
-  - name: raw_orders
+  - name: orders
     database: TESTHEVO
     schema: TEST_SCHEMA
     tables:
-      - name: orders
+      - name: raw_orders
 
-  - name: raw_payments
+  - name: payments
     database: TESTHEVO
     schema: TEST_SCHEMA
     tables:
-      - name: payments
+      - name: raw_payments
