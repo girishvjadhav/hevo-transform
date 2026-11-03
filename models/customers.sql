@@ -8,7 +8,7 @@ with customers as (
         id as customer_id,
         first_name,
         last_name
-    from {{ source('raw_customers', 'customers') }} 
+    from {{ source('hevo_raw', 'raw_customers') }} 
 ),
 
 orders as (
@@ -17,7 +17,7 @@ orders as (
         id as order_id,
         user_id as customer_id,
         order_date
-    from {{ source('raw_orders', 'orders') }}
+    from {{ source('hevo_raw', 'raw_orders') }}
 ),
 
 payments as (
@@ -26,7 +26,7 @@ payments as (
         id as payment_id,
         order_id,
         amount
-    from {{ source('raw_payments', 'payments') }}
+    from {{ source('hevo_raw', 'raw_payments') }}
 ),
 
 customer_orders as (
