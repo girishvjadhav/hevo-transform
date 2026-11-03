@@ -1,20 +1,10 @@
 version: 2
 
 sources:
-  - name: customers
+  - name: hevo_raw
     database: TESTHEVO
     schema: TEST_SCHEMA
     tables:
       - name: raw_customers
-
-  - name: orders
-    database: TESTHEVO
-    schema: TEST_SCHEMA
-    tables:
       - name: raw_orders
-
-  - name: payments
-    database: TESTHEVO
-    schema: TEST_SCHEMA
-    tables:
       - name: raw_payments
