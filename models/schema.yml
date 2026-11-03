@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: customers
+    description: "Monolithic dimensional table containing consolidated customer profiles, order aggregates, and financial metrics."
+    
+    # Model-level tests (Checks relationships between columns inside this table)
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "most_recent_order >= first_order"
+          description: "Ensures the most recent order date is never earlier than the first order date."
+          
+      - dbt_utils.expression_is_true:
+          expression: "coalesce(customer_lifetime_value, 0) >= 0"
+          description: "Guarantees customer lifetime value is never a negative amount."
+
+    # Column-level tests (Validates constraints on individual fields)
+    columns:
+      - name: customer_id
+        description: "The unique primary key for each customer profile."
+        tests:
+          - unique
+          - not_null
+
+      - name: number_of_orders
+        description: "Total number of orders placed by the customer."
+        tests:
+          - not_null
+
+      - name: customer_lifetime_value
+        description: "Aggregated sum of all transactions made by this customer."
+        tests:
+          - not_null
